@@ -37,11 +37,10 @@
 - (void)setUpIntro
 {
     self.explanations = [NSArray arrayWithObjects:
-                         [NSString stringWithFormat:@"Page 1"],
-                         [NSString stringWithFormat:@"Page 2"],
-                         [NSString stringWithFormat:@"Page 3"],
-                         [NSString stringWithFormat:@"Page 4"],
-                         [NSString stringWithFormat:@"Page 5"],
+                         [NSString stringWithFormat:@"Little things can mean a lot to your significant other."],
+                         [NSString stringWithFormat:@"Noticing the little things isn't too hard."],
+                         [NSString stringWithFormat:@"But remembering them can be a challenge."],
+                         [NSString stringWithFormat:@"Track those \"little things\" and get reminded from time to time."],
                          nil];
     
     for (int i = 0; i < self.explanations.count; i++) {

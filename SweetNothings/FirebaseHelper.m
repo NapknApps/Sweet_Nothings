@@ -25,6 +25,16 @@
     }
 }
 
++ (Firebase *)thoughtsFirebaseReference
+{
+    if ([self userIsLoggedIn]) {
+        return [[self userFirebaseReference] childByAppendingPath:[NSString stringWithFormat:@"/thoughts/"]];
+    }
+    else {
+        return nil;
+    }
+}
+
 + (BOOL)userIsLoggedIn
 {
     Firebase *ref = [self baseFirebaseReference];

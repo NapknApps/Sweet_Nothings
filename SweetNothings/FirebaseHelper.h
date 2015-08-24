@@ -13,6 +13,7 @@
 
 + (Firebase *)baseFirebaseReference;
 + (Firebase *)userFirebaseReference;
++ (Firebase *)thoughtsFirebaseReference;
 + (BOOL)userIsLoggedIn;
 + (void)logUserOut;
 + (NSString *)userUID;

@@ -26,6 +26,12 @@
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"accent_color.png"] forBarMetrics:UIBarMetricsDefault];
 
+    UIImage* toolbarImage = [UIImage imageNamed:@"accent_color.png"];
+    [[UIToolbar appearance]
+     setBackgroundImage: toolbarImage
+     forToolbarPosition: UIToolbarPositionAny
+     barMetrics: UIBarMetricsDefault];
+
     if (![DefaultsHelper isFirstLaunch]) {
         [DefaultsHelper setFirstLaunch];
         [FirebaseHelper logUserOut];

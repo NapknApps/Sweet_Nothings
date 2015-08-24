@@ -19,6 +19,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="OdI-bi-cBH"/>
+                        <barButtonItem systemItem="trash" id="gLe-Jp-07S">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="trashSelected:" destination="vXZ-lx-hvc" id="cFj-Bw-65S"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="Oj8-Uk-KnI">
                         <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="fR6-y7-ADY">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -34,6 +43,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="trashButton" destination="gLe-Jp-07S" id="tRm-nu-frv"/>
                         <segue destination="U82-eg-BmV" kind="modal" identifier="Intro" animates="NO" id="owx-k2-I6g"/>
                         <segue destination="MQu-FJ-K7d" kind="modal" identifier="Account" animates="NO" id="m40-hI-YJJ"/>
                     </connections>
@@ -45,12 +55,16 @@
         <!--Navigation Controller-->
         <scene sceneID="Dha-3G-oju">
             <objects>
-                <navigationController id="3Ng-xM-PZp" sceneMemberID="viewController">
+                <navigationController toolbarHidden="NO" id="3Ng-xM-PZp" sceneMemberID="viewController">
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qPy-07-CuD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="NXC-RR-Uhf">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="q8W-h9-U8g"/>
                     </connections>
@@ -77,7 +91,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lk5-n5-itp">
-                                <rect key="frame" x="16" y="547" width="343" height="100"/>
+                                <rect key="frame" x="16" y="590" width="343" height="57"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -114,7 +128,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BMy-kV-fRP">
-                                <rect key="frame" x="0.0" y="250" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="150" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <state key="normal" title="Login with Facebook">
@@ -126,7 +140,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="S65-LT-XUj">
-                                <rect key="frame" x="0.0" y="310" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="210" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <state key="normal" title="Log In">
@@ -138,7 +152,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="le4-PL-cvF">
-                                <rect key="frame" x="0.0" y="370" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="270" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <state key="normal" title="Sign Up">
@@ -150,7 +164,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fyu-0t-Znp">
-                                <rect key="frame" x="0.0" y="190" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="90" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <state key="normal" title="Login with Twitter">
@@ -176,6 +190,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RW5-cC-41u">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
                         <segue destination="keQ-2V-Bne" kind="relationship" relationship="rootViewController" id="eSh-cL-27l"/>
@@ -242,6 +257,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accent_color.png" id="3l5-Se-vte">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" id="sQM-up-ovk">
                                 <rect key="frame" x="10" y="100" width="355" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -266,10 +285,6 @@
                                     <action selector="signUpSelected:" destination="Uwg-iR-0Ff" eventType="touchUpInside" id="yg6-4g-HDe"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="accent_color.png" id="3l5-Se-vte">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" id="1fL-S8-NqW"/>
